@@ -1,5 +1,5 @@
 // A function that creates and returns an object
-function createItem (item) {
+function toDoItem (item) {
     const title = item.title;
     const description = item.description;
     const dueDate = item.dueDate;
@@ -35,4 +35,4 @@ function createItem (item) {
 }
 
 // Export the factory function itself, not the inner function
-export { createItem };
+export { toDoItem };

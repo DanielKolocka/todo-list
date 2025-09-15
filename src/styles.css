@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
+    /* padding: 0 20px; */
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 100px 1fr;
+}
+
+.header {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+}
+
+#addToDoButton, #addProjectButton {
+    margin-right: 30px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #4caf50;
+  color: #fff;
+}
+
+.projectsContainerGroup {
+    display: flex;
+    flex-direction: row;
+}
+
+.projects {
+    grid-column: 1/2;
+    grid-row: 2/-1;
+    background-color: blanchedalmond;
+    padding: 0 20px;
+}
+
+.projectList {
+    list-style: none;
+    /* padding: 0; */
+    margin: 8px 0;
+}
+
+.projectList li {
+    margin: 8px 0;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.projectList li:hover {
+    background: #ddd;
+    padding-left: 9px;
+    color: red;
+}
+
+.toDoList {
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+    background-color: #e0e0e0;
+    padding: 0 20px;
+
+}
