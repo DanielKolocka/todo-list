@@ -2,6 +2,7 @@ import { project } from "./project";
 
 function projectList () {
     const projectList = [];
+    let activeProject = projectList[0];
 
     const addProject = (project) => {
         projectList.push(project);

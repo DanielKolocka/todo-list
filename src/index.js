@@ -5,6 +5,39 @@ import { getProject } from "./getProject";
 
 import "./styles.css";
 
+const dialog = document.querySelector("dialog");
+const addToDoButton = document.querySelector("#addToDoButton");
+addToDoButton.addEventListener('click', () => {
+    dialog.showModal();
+});
+
+// Close the modal when clicking outside of it
+dialog.addEventListener('click', (e) => {
+    const dialogDimensions = dialog.getBoundingClientRect();
+    if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+    ) {
+        dialog.close();
+    }
+});
+
+const dialogTitle = document.querySelector("#toDoTitle");
+const dialogDescription = document.querySelector("#toDoDescription");
+const dialogDueDate = document.querySelector("#toDoDueDate");
+const dialogSubmitButton = document.querySelector("#submitModalButton");
+dialogSubmitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const newTodo = toDoItem(dialogTitle.value, dialogDescription.value, dialogDueDate.value);
+    // implement logic to get active project
+    // Add newToDO to active project
+    // loop through active projects, add listen to each on click to set as active and display their lists
+    // Update the screen.
+});
+
+
 const projects = projectList();
 const projectsDiv = document.querySelector(".projects");
 // projectsDiv.appendChild(projects.createProjectList());
@@ -20,26 +53,6 @@ createProjectButton.addEventListener('click', (e) => {
     }
 });
 
-const createToDoButton = document.querySelector("#addToDoButton");
-createToDoButton.addEventListener('click', () => {
-    //Open modal to create a ToDo Item
-    
-    // Create the to-do Item and add it to the active project
-
-    // Update screen
-});
-
-
-
-
-
-// const projectChores = project("Chores");
-// const projectStudy = project("Study");
-
-// projects.addProject(projectChores);
-// projects.addProject(projectStudy);
-
-
 
 // Fake item from DOM
 const item = {
@@ -48,17 +61,4 @@ const item = {
     "dueDate" : "10-28-1999",
     "priority": "high"
 }
-const item2 = {
-    "title" : "10 Pushups",
-    "description" : "I need to do 10 pushups",
-    "dueDate" : "10-28-2020",
-    "priority": "low"
-}
 
-// const chores = project("Chores");
-// const toDo1 = createItem(item);
-// chores.addItem(toDo1);
-// chores.showToDoList();
-// toDo1.getItem();
-
-// toDoItem.getItem();

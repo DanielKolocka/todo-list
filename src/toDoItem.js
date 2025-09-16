@@ -1,19 +1,19 @@
 // A function that creates and returns an object
-function toDoItem (item) {
-    const title = item.title;
-    const description = item.description;
-    const dueDate = item.dueDate;
-    const priority = item.priority;
+function toDoItem (itemTitle, itemDescription, itemDueDate) {
+    const title = itemTitle;
+    const description = itemDescription;
+    const dueDate = itemDueDate;
+    // const priority = item.priority;
     let isComplete = false;
 
     // A method to retrieve the item's details
     const getItem = () => {
-        console.log(`Title: ${title}, Description: ${description}, Due Date: ${dueDate}, Priority: ${priority}, isComplete: ${isComplete}`);
+        console.log(`Title: ${title}, Description: ${description}, Due Date: ${dueDate}, isComplete: ${isComplete}`);
         return {
             title,
             description,
             dueDate,
-            priority,
+            // priority,
             isComplete
         };
     };
