@@ -11,6 +11,15 @@ addToDoButton.addEventListener('click', () => {
     dialog.showModal();
 });
 
+const projects = projectList();
+// const temp1 = project("test1");
+// const temp2 = project("test2");
+// projects.addProject(temp1);
+// projects.addProject(temp2);
+
+const projectsDiv = document.querySelector(".projects");
+// projectsDiv.appendChild(projects.createProjectList());
+
 // Close the modal when clicking outside of it
 dialog.addEventListener('click', (e) => {
     const dialogDimensions = dialog.getBoundingClientRect();
@@ -24,6 +33,7 @@ dialog.addEventListener('click', (e) => {
     }
 });
 
+let activeProject = null;
 const dialogTitle = document.querySelector("#toDoTitle");
 const dialogDescription = document.querySelector("#toDoDescription");
 const dialogDueDate = document.querySelector("#toDoDueDate");
@@ -31,16 +41,21 @@ const dialogSubmitButton = document.querySelector("#submitModalButton");
 dialogSubmitButton.addEventListener('click', (e) => {
     e.preventDefault();
     const newTodo = toDoItem(dialogTitle.value, dialogDescription.value, dialogDueDate.value);
-    // implement logic to get active project
+    // implement logic to get active project -> TODO 
+    activeProject = projects.getActiveProject();
     // Add newToDO to active project
+    activeProject.addItem(newTodo);
+    activeProject.showToDoList(); //update screen to show active projects
     // loop through active projects, add listen to each on click to set as active and display their lists
     // Update the screen.
 });
 
 
-const projects = projectList();
-const projectsDiv = document.querySelector(".projects");
-// projectsDiv.appendChild(projects.createProjectList());
+
+// const temp1 = project("test1");
+// const temp2 = project("test2");
+// projects.addProject(temp1);
+// projects.addProject(temp2);
 
 const createProjectButton = document.querySelector("#addProjectButton");
 createProjectButton.addEventListener('click', (e) => {
@@ -50,6 +65,8 @@ createProjectButton.addEventListener('click', (e) => {
         projects.addProject(newProject);
         projectsDiv.replaceChildren();
         projectsDiv.appendChild(projects.createProjectList());
+        projects.setActiveProject(newProject);
+        console.log(projects.getActiveProject().getTitle());
     }
 });
 
