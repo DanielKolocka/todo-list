@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-DO List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Todo App</h1>
+            <button id="addToDoButton">+ Add New Todo</button>
+        </div>
+        <dialog>
+            <div class="modal">
+                <h3 class="modalTitle">Add New Todo</h3>
+                <form class="modalForm">
+                    <input type="text" id="toDoTitle" placeholder="Title">
+                    <input type="text" id="toDoDescription" placeholder="Description">
+                    <input type="date" id="toDoDueDate" placeholder="Due Date">
+                </form>
+                <div class="submitContainer">
+                    <button id="submitModalButton">Submit</button>
+                </div>
+            </div>
+        </dialog>
+
+        <div class="projectsContainerGroup">
+            <div class="projects">
+                <h2>Projects</h2>      
+                <!-- <ul class="projectList">
+                    <li>Chores</li>
+                    <li>Study Class</li>
+                </ul>-->
+            </div>
+            <button id="addProjectButton">+ Project</button>
+        </div>
+        <div class="toDoList">
+            <!-- <div class="toDoItem">
+                <p>Take out Trash</p>
+                <p>Garbage truck coming at 9, garbage out by 8:30</p>
+                <p>2025-05-01</p>
+            <button id="changeStatus">Edit</button>
+            <button id="deleteItem">Delete</button>
+            </div> -->
+
+        </div>
+    </div>
+</body>
+</html>
