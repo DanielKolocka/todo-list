@@ -33,6 +33,8 @@ dialog.addEventListener('click', (e) => {
     }
 });
 
+const toDoListDiv = document.querySelector(".toDoList");
+
 let activeProject = null;
 const dialogTitle = document.querySelector("#toDoTitle");
 const dialogDescription = document.querySelector("#toDoDescription");
@@ -42,20 +44,17 @@ dialogSubmitButton.addEventListener('click', (e) => {
     e.preventDefault();
     const newTodo = toDoItem(dialogTitle.value, dialogDescription.value, dialogDueDate.value);
     // implement logic to get active project -> TODO 
+    // console.log(newTodo.getItem());
     activeProject = projects.getActiveProject();
     // Add newToDO to active project
     activeProject.addItem(newTodo);
-    activeProject.showToDoList(); //update screen to show active projects
+    // activeProject.showToDoList(); //update screen to show active projects
+    toDoListDiv.replaceChildren();
+    toDoListDiv.appendChild(activeProject.showToDoList());
     // loop through active projects, add listen to each on click to set as active and display their lists
     // Update the screen.
 });
 
-
-
-// const temp1 = project("test1");
-// const temp2 = project("test2");
-// projects.addProject(temp1);
-// projects.addProject(temp2);
 
 const createProjectButton = document.querySelector("#addProjectButton");
 createProjectButton.addEventListener('click', (e) => {

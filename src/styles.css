@@ -64,15 +64,21 @@ body {
     color: red;
 }
 
+toDoItemsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+}
+
 .toDoList {
     grid-column: 2/-1;
     grid-row: 2/-1;
     background-color: #e0e0e0;
     padding: 0 20px;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 50px;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+    /* gap: 50px; */
 }
 
 .toDoItem {
@@ -80,13 +86,14 @@ body {
     flex-direction: column;
     font-size: 23px;
     padding: 10px;
-    width: 300px;
+    /* width: 500px; */
+    height: 250px;
     border: solid 2px;
     border-radius: 8px;
     background-color: #fffbfb;
     /* line-height:0.5; */
-    gap: 6px;
-    margin: 25px;
+    /* gap: 60px; */
+    /* margin: 10px; */
 }
 
 dialog {

@@ -26,6 +26,7 @@ function projectList () {
         projectListUl.setAttribute("class", "projectList");
 
         let counter = 0;
+        const toDoListDiv = document.querySelector(".toDoList");
         projectList.forEach(project => {
             const projectDiv = document.createElement("li");
             projectDiv.textContent = project.getTitle(); //Project Title
@@ -36,6 +37,9 @@ function projectList () {
                 // Set the clicked project to active
                 setActiveProject(projectList[e.target.id]);
                 // create To-DO list cards for that active project
+                toDoListDiv.replaceChildren();
+                toDoListDiv.appendChild(projectList[e.target.id].showToDoList());
+                
 
             });
             
