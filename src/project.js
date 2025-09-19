@@ -30,6 +30,9 @@ function project(projectTitle) {
             const deleteButton = document.createElement("button");
             deleteButton.setAttribute("id", "deleteItem");
             deleteButton.textContent = "Delete";
+            deleteButton.addEventListener('click', (e) => {
+                console.log(e); //
+            });
 
             toDoContainer.appendChild(itemTitle);
             toDoContainer.appendChild(itemDescription);

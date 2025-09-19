@@ -42,6 +42,10 @@ const dialogDueDate = document.querySelector("#toDoDueDate");
 const dialogSubmitButton = document.querySelector("#submitModalButton");
 dialogSubmitButton.addEventListener('click', (e) => {
     e.preventDefault();
+    if (activeProject == null) {
+        alert("You must create a project before you can add a To-Do Item!");
+        return;
+    }
     const newTodo = toDoItem(dialogTitle.value, dialogDescription.value, dialogDueDate.value);
     // implement logic to get active project -> TODO 
     // console.log(newTodo.getItem());
@@ -61,6 +65,7 @@ createProjectButton.addEventListener('click', (e) => {
     const projectName = getProject();
     if (projectName != null) {
         const newProject = project(projectName);
+        activeProject = newProject;
         projects.addProject(newProject);
         projectsDiv.replaceChildren();
         projectsDiv.appendChild(projects.createProjectList());
