@@ -6,6 +6,9 @@ function project(projectTitle) {
         toDoList.push(toDoItem);
     }
     const showToDoList = () => {
+        let counter=0;
+        const toDoListDiv = document.querySelector(".toDoList");
+
         const container = document.createElement("div");
         container.setAttribute("class", "toDoItemsContainer");
         toDoList.forEach(toDoItem => {
@@ -13,6 +16,7 @@ function project(projectTitle) {
 
             const toDoContainer = document.createElement("div");
             toDoContainer.setAttribute("class", "toDoItem");
+            toDoContainer.setAttribute("id", counter++);
             
             const itemTitle = document.createElement("p");
             itemTitle.textContent = `Title: ${tempItem.title}`;
@@ -31,7 +35,10 @@ function project(projectTitle) {
             deleteButton.setAttribute("id", "deleteItem");
             deleteButton.textContent = "Delete";
             deleteButton.addEventListener('click', (e) => {
-                console.log(e); //
+                console.log(e.target.parentNode.id); 
+                toDoList.splice(e.target.parentNode.id, 1); //Remove this from toDoList
+                toDoListDiv.replaceChildren();
+                toDoListDiv.appendChild(showToDoList());
             });
 
             toDoContainer.appendChild(itemTitle);
